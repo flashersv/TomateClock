@@ -89,6 +89,7 @@ namespace TomateClock
                         timer1.Stop();
                         conteoMinutos = 0;
                         conteoSegundos = 0;
+                        notificacionTaskBar("TomateClock - Intervalo terminado", "A descansar se ha dicho!");
 
                         if (MessageBox.Show("Haz click en Aceptar para iniciar descanso", "Termino intervalo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                         {
@@ -117,6 +118,7 @@ namespace TomateClock
                             timer1.Stop();
                             conteoMinutos = 0;
                             conteoSegundos = 0;
+                            notificacionTaskBar("TomateClock - Fin del descanso", "Regresemos a trabajar");
 
                             if (MessageBox.Show("A trabajar nuevamente!", "Se terminó el descanso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
                             {
@@ -136,8 +138,9 @@ namespace TomateClock
                             timer1.Stop();
                             conteoMinutos = 0;
                             conteoSegundos = 0;
+                            notificacionTaskBar("TomateClock - Tiempo terminado", "Finalizaste con exito 4 intervalos e hiciste los descansos");
 
-                            if (MessageBox.Show("Terminaste los 4 intervalos y el descanso de 25 minutos. Haz click en Iniciar, para empezar con la técnica de Pomodoro", "Se acabo el descanso de 25 minutos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                            if (MessageBox.Show("Terminaste los 4 intervalos y el descanso de 25 minutos. El conteo volverá a iniciar", "Se acabo el descanso de 25 minutos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
                             {
                                 losMinutos = "00";
                                 controlDescanso = 0;
@@ -177,6 +180,15 @@ namespace TomateClock
                 Application.Restart();
                 Environment.Exit(0);
             }
+        }
+
+        public void notificacionTaskBar(string titulo, string contenido)
+        {
+            notifyIcon1.Icon = SystemIcons.Exclamation;
+            notifyIcon1.BalloonTipTitle = titulo;
+            notifyIcon1.BalloonTipText = contenido;
+            notifyIcon1.Visible = true;
+            notifyIcon1.ShowBalloonTip(30000);
         }
     }
 }
