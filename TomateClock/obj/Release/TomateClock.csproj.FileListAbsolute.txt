@@ -1,0 +1,8 @@
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\bin\Release\TomateClock.exe
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\bin\Release\TomateClock.pdb
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Release\TomateClock.csprojResolveAssemblyReference.cache
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Release\TomateClock.Form1.resources
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Release\TomateClock.Properties.Resources.resources
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Release\TomateClock.csproj.GenerateResource.Cache
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Release\TomateClock.exe
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Release\TomateClock.pdb

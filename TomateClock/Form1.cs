@@ -102,10 +102,12 @@ namespace TomateClock
                         if (intervalo < 4)
                         {
                             intervalo_lb.Text = "El intervalo " + intervalo.ToString() + " Finalizó";
+                            label1.Text = "Estas en período de descanso (5 minutos):";
                         }
                         else
                         {
                             intervalo_lb.Text = "Finalizaron los 4 intervalos, descansa 25 minutos y vuelve a iniciar la aplicación";
+                            label1.Text = "Mereces un descanso! de 25 minutos:";
                         }
                     }
                 }
@@ -144,7 +146,7 @@ namespace TomateClock
                             {
                                 losMinutos = "00";
                                 controlDescanso = 0;
-                                intervalo++;
+                                intervalo = 1;
                                 intervalo_lb.Text = "Intervalo" + intervalo.ToString();
                                 panel1.Visible = false;
                                 timer1.Start();
