@@ -45,16 +45,6 @@ namespace TomateClock
             Tiempo();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string textoInfo = "La Técnica Pomodoro es un método para mejorar la administración ";
-            textoInfo += "del tiempo, desarrollado por Francesco Cirillo a fines de los años 1980. ";
-            textoInfo += "Divide el tiempo dedicado a un trabajo en intervalos de 25 minutos -llamados ";
-            textoInfo += "'pomodoros' y descansar 5 minutos después. Al llegar a 4 intervalos, "; 
-            textoInfo += "descansar entre 20 y 30 minutos, para luego empezar nuevamente a contar desde cero.";
-            MessageBox.Show(textoInfo,"Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
-        }
-
         public void Tiempo()
         {
             
@@ -167,11 +157,6 @@ namespace TomateClock
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Pequeña aplicación realizada por Ludwin Rodríguez Salinas, de El Salvador, Centroamérica. E-mail flashersv@gmail.com","Acerca de",MessageBoxButtons.OK,MessageBoxIcon.Information);
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             button1.Enabled = true;
@@ -191,6 +176,28 @@ namespace TomateClock
             notifyIcon1.BalloonTipText = contenido;
             notifyIcon1.Visible = true;
             notifyIcon1.ShowBalloonTip(30000);
+        }
+
+        private void técnicaPomodoroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string textoInfo = "La Técnica Pomodoro es un método para mejorar la administración ";
+            textoInfo += "del tiempo, desarrollado por Francesco Cirillo a fines de los años 1980. ";
+            textoInfo += "Divide el tiempo dedicado a un trabajo en intervalos de 25 minutos -llamados ";
+            textoInfo += "'pomodoros' y descansar 5 minutos después. Al llegar a 4 intervalos, ";
+            textoInfo += "descansar entre 20 y 30 minutos, para luego empezar nuevamente a contar desde cero.";
+            MessageBox.Show(textoInfo, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void acercaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pequeña aplicación realizada por Ludwin Rodríguez Salinas, de El Salvador, Centroamérica. E-mail flashersv@gmail.com", "Acerca de", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form conf = new Configuracion(timer1);
+            timer1.Stop();
+            conf.ShowDialog();
         }
     }
 }
