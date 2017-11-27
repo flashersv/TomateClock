@@ -6,3 +6,5 @@ c:\users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock
 c:\users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Debug\TomateClock.csproj.GenerateResource.Cache
 c:\users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Debug\TomateClock.exe
 c:\users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Debug\TomateClock.pdb
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\bin\Debug\TomateClock.exe.config
+C:\Users\flashersv\documents\visual studio 2015\Projects\TomateClock\TomateClock\obj\Debug\TomateClock.Configuracion.resources

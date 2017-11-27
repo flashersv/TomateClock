@@ -13,16 +13,18 @@ namespace TomateClock
     {
 
         private Timer _timer;
+        private string _iniciado;
 
         public Configuracion()
         {
             InitializeComponent();
         }
 
-        public Configuracion(Timer timer)
+        public Configuracion(Timer timer, string iniciado)
         {
             InitializeComponent();
             _timer = timer;
+            _iniciado = iniciado;
         }
 
         private void Configuracion_Load(object sender, EventArgs e)
@@ -47,9 +49,22 @@ namespace TomateClock
             {
                 radioButton5.Checked = true;
             }
-            else
+            else if(descanso == 30)
             {
                 radioButton4.Checked = true;
+            }
+            else
+            {
+                radioButton6.Checked = true;
+            }
+
+            if(Properties.Settings.Default.lanzaAdvertencias == true)
+            {
+                checkBox1.Checked = true;
+            }
+            else
+            {
+                checkBox1.Checked = false;
             }
         }
 
@@ -80,7 +95,10 @@ namespace TomateClock
 
         private void Configuracion_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _timer.Start();  
+            if (_iniciado == "si")
+            {
+                _timer.Start();
+            }
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
@@ -95,6 +113,24 @@ namespace TomateClock
             Properties.Settings.Default.tiempoDescansoMayor = 30;
             Properties.Settings.Default.Save();
             
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.tiempoDescansoMayor = 20;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked == true)
+            {
+                Properties.Settings.Default.lanzaAdvertencias = true;
+            }
+            else
+            {
+                Properties.Settings.Default.lanzaAdvertencias = false;
+            }
         }
     }
 }

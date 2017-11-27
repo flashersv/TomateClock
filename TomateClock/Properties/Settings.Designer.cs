@@ -49,13 +49,13 @@ namespace TomateClock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool lanzaAdvertencias {
             get {
-                return ((string)(this["Setting"]));
+                return ((bool)(this["lanzaAdvertencias"]));
             }
             set {
-                this["Setting"] = value;
+                this["lanzaAdvertencias"] = value;
             }
         }
     }

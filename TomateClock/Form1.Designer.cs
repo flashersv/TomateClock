@@ -36,11 +36,6 @@
             this.segundos = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.intervalo_lb = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.minutosNull = new System.Windows.Forms.TextBox();
-            this.segundosNull = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -48,8 +43,13 @@
             this.técnicaPomodoroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.minutosNull = new System.Windows.Forms.TextBox();
+            this.segundosNull = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -115,67 +115,6 @@
             this.intervalo_lb.Text = "Intervalo 1";
             this.intervalo_lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Estas en período de descanso (5 minutos):";
-            // 
-            // minutosNull
-            // 
-            this.minutosNull.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.minutosNull.Location = new System.Drawing.Point(226, 7);
-            this.minutosNull.Name = "minutosNull";
-            this.minutosNull.ReadOnly = true;
-            this.minutosNull.Size = new System.Drawing.Size(24, 13);
-            this.minutosNull.TabIndex = 16;
-            this.minutosNull.TabStop = false;
-            this.minutosNull.Text = "00";
-            this.minutosNull.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // segundosNull
-            // 
-            this.segundosNull.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.segundosNull.Location = new System.Drawing.Point(252, 7);
-            this.segundosNull.Name = "segundosNull";
-            this.segundosNull.ReadOnly = true;
-            this.segundosNull.Size = new System.Drawing.Size(24, 13);
-            this.segundosNull.TabIndex = 17;
-            this.segundosNull.TabStop = false;
-            this.segundosNull.Text = "00";
-            this.segundosNull.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(244, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(14, 13);
-            this.textBox2.TabIndex = 18;
-            this.textBox2.Text = ":";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.segundosNull);
-            this.panel1.Controls.Add(this.minutosNull);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 134);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 25);
-            this.panel1.TabIndex = 8;
-            // 
             // button4
             // 
             this.button4.Enabled = false;
@@ -237,6 +176,67 @@
             this.acercaToolStripMenuItem.Text = "Acerca";
             this.acercaToolStripMenuItem.Click += new System.EventHandler(this.acercaToolStripMenuItem_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.segundosNull);
+            this.panel1.Controls.Add(this.minutosNull);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(6, 136);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(264, 25);
+            this.panel1.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(209, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Estas en período de descanso (5 minutos):";
+            // 
+            // minutosNull
+            // 
+            this.minutosNull.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.minutosNull.Location = new System.Drawing.Point(211, 7);
+            this.minutosNull.Name = "minutosNull";
+            this.minutosNull.ReadOnly = true;
+            this.minutosNull.Size = new System.Drawing.Size(24, 13);
+            this.minutosNull.TabIndex = 16;
+            this.minutosNull.TabStop = false;
+            this.minutosNull.Text = "00";
+            this.minutosNull.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // segundosNull
+            // 
+            this.segundosNull.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.segundosNull.Location = new System.Drawing.Point(237, 7);
+            this.segundosNull.Name = "segundosNull";
+            this.segundosNull.ReadOnly = true;
+            this.segundosNull.Size = new System.Drawing.Size(24, 13);
+            this.segundosNull.TabIndex = 17;
+            this.segundosNull.TabStop = false;
+            this.segundosNull.Text = "00";
+            this.segundosNull.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(229, 7);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(14, 13);
+            this.textBox2.TabIndex = 18;
+            this.textBox2.Text = ":";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,10 +261,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,11 +276,6 @@
         private System.Windows.Forms.TextBox segundos;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label intervalo_lb;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox minutosNull;
-        private System.Windows.Forms.TextBox segundosNull;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -289,6 +284,11 @@
         private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaToolStripMenuItem;
         public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox segundosNull;
+        private System.Windows.Forms.TextBox minutosNull;
+        private System.Windows.Forms.Label label1;
     }
 }
 

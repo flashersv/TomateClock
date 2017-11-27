@@ -11,12 +11,13 @@ namespace TomateClock
 {
     public partial class Form1 : Form
     {
-        int intervalo = 1;
-        int conteoSegundos;
-        int conteoMinutos;
-        int controlDescanso = 0;
-        string losSegundos;
-        string losMinutos;
+        private int intervalo = 1;
+        private int conteoSegundos;
+        private int conteoMinutos;
+        private int controlDescanso = 0;
+        private string losSegundos;
+        private string losMinutos;
+        private string iniciado = "no"; //-- verifica si ya había iniciado conteo (utilizado en configuración)
 
         public Form1()
         {
@@ -37,6 +38,7 @@ namespace TomateClock
             timer1.Start();
             button1.Enabled = false;
             button4.Enabled = true;
+            iniciado = "si";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -57,7 +59,7 @@ namespace TomateClock
                 losSegundos = conteoSegundos.ToString();
             }
 
-            if (conteoSegundos >= 60)
+            if (conteoSegundos >= 60) //-- cambiar a 60 despues de pruebas
             {
                 conteoSegundos = 0;
                 losSegundos = "00";
@@ -74,9 +76,12 @@ namespace TomateClock
 
                 if (controlDescanso == 0)
                 {
-                    if (conteoMinutos >= 25)
+                    minutos.Text = losMinutos;
+
+                    if (Convert.ToInt32(minutos.Text) == Properties.Settings.Default.tiempoIntervalo)// aqui va variable: Properties.Settings.Default.tiempoIntervalo
                     {
                         timer1.Stop();
+                        segundos.Text = "00";
                         conteoMinutos = 0;
                         conteoSegundos = 0;
                         notificacionTaskBar("TomateClock - Intervalo terminado", "A descansar se ha dicho!");
@@ -84,6 +89,7 @@ namespace TomateClock
                         if (MessageBox.Show("Haz click en Aceptar para iniciar descanso", "Termino intervalo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                         {
                             losMinutos = "00";
+                            minutosNull.Text = losMinutos; //-- setea a cero los minutos de los descansos de para empezar de cero
                             controlDescanso = 1;
                             panel1.Visible = true;
                             timer1.Start();
@@ -96,8 +102,8 @@ namespace TomateClock
                         }
                         else
                         {
-                            intervalo_lb.Text = "Finalizaron los 4 intervalos, descansa 25 minutos y vuelve a iniciar la aplicación";
-                            label1.Text = "Mereces un descanso! de 25 minutos:";
+                            intervalo_lb.Text = "Finalizaron los 4 intervalos, descansa " + Properties.Settings.Default.tiempoDescansoMayor.ToString() +" minutos y vuelve a iniciar";
+                            label1.Text = "Mereces un descanso! de " + Properties.Settings.Default.tiempoDescansoMayor.ToString() + " minutos:";
                         }
                     }
                 }
@@ -105,8 +111,11 @@ namespace TomateClock
                 {
                     if (intervalo < 4)
                     {
+                        minutosNull.Text = losMinutos;
+
                         if (conteoMinutos >= 5)
                         {
+                            segundosNull.Text = "00";
                             timer1.Stop();
                             conteoMinutos = 0;
                             conteoSegundos = 0;
@@ -115,6 +124,7 @@ namespace TomateClock
                             if (MessageBox.Show("A trabajar nuevamente!", "Se terminó el descanso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
                             {
                                 losMinutos = "00";
+                                minutos.Text = losMinutos; //-- setea a cero los minutos de los intervalos de trabajo para empezar de cero
                                 controlDescanso = 0;
                                 intervalo++;
                                 intervalo_lb.Text = "Intervalo" + intervalo.ToString();
@@ -125,16 +135,20 @@ namespace TomateClock
                     }
                     else
                     {
-                        if (conteoMinutos >= 25)
+                        minutosNull.Text = losMinutos;
+
+                        if (conteoMinutos >= Properties.Settings.Default.tiempoDescansoMayor)
                         {
+                            segundosNull.Text = "00";
                             timer1.Stop();
                             conteoMinutos = 0;
                             conteoSegundos = 0;
                             notificacionTaskBar("TomateClock - Tiempo terminado", "Finalizaste con exito 4 intervalos e hiciste los descansos");
 
-                            if (MessageBox.Show("Terminaste los 4 intervalos y el descanso de 25 minutos. El conteo volverá a iniciar", "Se acabo el descanso de 25 minutos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                            if (MessageBox.Show("Terminaste los 4 intervalos y el descanso de " + Properties.Settings.Default.tiempoDescansoMayor.ToString() + " minutos. El conteo volverá a iniciar", "Se acabo el descanso de " + Properties.Settings.Default.tiempoDescansoMayor.ToString() +" minutos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
                             {
                                 losMinutos = "00";
+                                minutos.Text = losMinutos; //-- setea a cero los minutos de los intervalos de trabajo para empezar de cero
                                 controlDescanso = 0;
                                 intervalo = 1;
                                 intervalo_lb.Text = "Intervalo" + intervalo.ToString();
@@ -148,12 +162,10 @@ namespace TomateClock
             if (controlDescanso == 0)
             {
                 segundos.Text = losSegundos;
-                minutos.Text = losMinutos;
             }
             else
             {
                 segundosNull.Text = losSegundos;
-                minutosNull.Text = losMinutos;
             }
         }
 
@@ -195,7 +207,7 @@ namespace TomateClock
 
         private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form conf = new Configuracion(timer1);
+            Form conf = new Configuracion(timer1, iniciado);
             timer1.Stop();
             conf.ShowDialog();
         }
