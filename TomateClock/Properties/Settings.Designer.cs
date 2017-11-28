@@ -46,17 +46,5 @@ namespace TomateClock.Properties {
                 this["tiempoDescansoMayor"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool lanzaAdvertencias {
-            get {
-                return ((bool)(this["lanzaAdvertencias"]));
-            }
-            set {
-                this["lanzaAdvertencias"] = value;
-            }
-        }
     }
 }

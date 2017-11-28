@@ -57,15 +57,6 @@ namespace TomateClock
             {
                 radioButton6.Checked = true;
             }
-
-            if(Properties.Settings.Default.lanzaAdvertencias == true)
-            {
-                checkBox1.Checked = true;
-            }
-            else
-            {
-                checkBox1.Checked = false;
-            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -121,16 +112,6 @@ namespace TomateClock
             Properties.Settings.Default.Save();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if(checkBox1.Checked == true)
-            {
-                Properties.Settings.Default.lanzaAdvertencias = true;
-            }
-            else
-            {
-                Properties.Settings.Default.lanzaAdvertencias = false;
-            }
-        }
+        
     }
 }
